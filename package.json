@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "commander": "^14.0.0",
+    "openai": "^5.10.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0"
+  }
+}
