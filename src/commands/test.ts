@@ -1,11 +1,15 @@
 import { Command } from 'commander';
 import OpenAI from 'openai';
+import { config } from '../config';
 
 const client = new OpenAI({
-  apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
+    apiKey: config.openaiKey,
 });
 
 const commandAction = async () => {
+    console.log("Testing OpenAI API...");
+    console.log(config.openaiKey);
+
     const response = await client.moderations.create({
         model: 'omni-moderation-latest',
         input: 'Heil Hitler',
@@ -23,7 +27,7 @@ const commandAction = async () => {
 }
 
 
-export function loadCommand(program: Command) {
+export function testCommand(program: Command) {
     program
         .command('test')
         .description('Test command for demonstration')
