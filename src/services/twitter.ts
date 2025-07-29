@@ -1,7 +1,6 @@
 // Service that posts curated content to Twitter
 import { TwitterApi } from 'twitter-api-v2';
 import { config } from '../config';
-import open from 'open';
 
 console.log(config.twitter);
 
@@ -34,6 +33,7 @@ export async function loginToTwitter(): Promise<void> {
         console.log('Auth URL:', authLink.url);
         
         // Open the browser to the Twitter auth page
+        const { default: open } = await import('open');
         await open(authLink.url);
         
         console.log('Please complete the authentication in your browser.');
